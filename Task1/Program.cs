@@ -1,24 +1,37 @@
-﻿namespace VotingEligibility
+﻿namespace GradeLetterLookup
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter your age: ");
-            int age = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter Grade (A/B/C/D/F): ");
+            char grade = Convert.ToChar(Console.ReadLine().ToUpper());
 
-            Console.Write("Do you have a valid ID? (yes/no): ");
-            string answer = Console.ReadLine();
-
-            bool hasID = answer.ToLower() == "yes";
-
-            if (age >= 18 && hasID)
+            switch (grade)
             {
-                Console.WriteLine("Eligible to vote");
-            }
-            else
-            {
-                Console.WriteLine("Not eligible to vote");
+                case 'A':
+                    Console.WriteLine("Excellent");
+                    break;
+
+                case 'B':
+                    Console.WriteLine("Very Good");
+                    break;
+
+                case 'C':
+                    Console.WriteLine("Good");
+                    break;
+
+                case 'D':
+                    Console.WriteLine("Pass");
+                    break;
+
+                case 'F':
+                    Console.WriteLine("Fail");
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid grade");
+                    break;
             }
         }
     }
