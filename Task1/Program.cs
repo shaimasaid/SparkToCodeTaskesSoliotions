@@ -1,19 +1,24 @@
-﻿namespace EvenorOddChecker
+﻿namespace VotingEligibility
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter a number: ");
-            int number = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter your age: ");
+            int age = Convert.ToInt32(Console.ReadLine());
 
-            if (number % 2 == 0)
+            Console.Write("Do you have a valid ID? (yes/no): ");
+            string answer = Console.ReadLine();
+
+            bool hasID = answer.ToLower() == "yes";
+
+            if (age >= 18 && hasID)
             {
-                Console.WriteLine("Even");
+                Console.WriteLine("Eligible to vote");
             }
             else
             {
-                Console.WriteLine("Odd");
+                Console.WriteLine("Not eligible to vote");
             }
         }
     }
