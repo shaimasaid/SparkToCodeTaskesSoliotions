@@ -1,20 +1,20 @@
-﻿namespace task1
+﻿namespace RectangleCalculator
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            string name = "Shaima";
-            int age = 22;
-            double height = 1.65;
-            bool isStudent = true;
+            Console.Write("Enter Length: ");
+            double length = Convert.ToDouble(Console.ReadLine());
 
-            Console.WriteLine("Personal Information");
-            Console.WriteLine("--------------------");
-            Console.WriteLine("Name: " + name);
-            Console.WriteLine("Age: " + age);
-            Console.WriteLine("Height: " + height);
-            Console.WriteLine("Student: " + isStudent);
+            Console.Write("Enter Width: ");
+            double width = Convert.ToDouble(Console.ReadLine());
+
+            double area = length * width;
+            double perimeter = 2 * (length + width);
+
+            Console.WriteLine("Area = " + area);
+            Console.WriteLine("Perimeter = " + perimeter);
         }
     }
 }
