@@ -1,45 +1,31 @@
-﻿namespace ShippingCostCalculator
+﻿namespace TriangleTypeClassifier
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter region (A/B/C): ");
-            char region = Convert.ToChar(Console.ReadLine());
+            Console.Write("Side 1: ");
+            double a = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Enter weight: ");
-            double weight = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Side 2: ");
+            double b = Convert.ToDouble(Console.ReadLine());
 
-            double baseCost = 0;
-            double extra = 0;
+            Console.Write("Side 3: ");
+            double c = Convert.ToDouble(Console.ReadLine());
 
-            switch (region)
+            if (a + b > c && a + c > b && b + c > a)
             {
-                case 'A':
-                    baseCost = 1;
-                    break;
-
-                case 'B':
-                    baseCost = 3;
-                    break;
-
-                case 'C':
-                    baseCost = 7;
-                    break;
-
-                default:
-                    Console.WriteLine("Invalid region");
-                    return;
+                if (a == b && b == c)
+                    Console.WriteLine("Equilateral");
+                else if (a == b || a == c || b == c)
+                    Console.WriteLine("Isosceles");
+                else
+                    Console.WriteLine("Scalene");
             }
-
-            if (weight > 10)
-                extra = 5;
-            else if (weight > 5)
-                extra = 2;
-
-            Console.WriteLine("Base Cost: " + baseCost);
-            Console.WriteLine("Extra Charge: " + extra);
-            Console.WriteLine("Total Cost: " + (baseCost + extra));
+            else
+            {
+                Console.WriteLine("Invalid Triangle");
+            }
         }
     }
 }
