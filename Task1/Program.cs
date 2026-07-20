@@ -1,49 +1,32 @@
-﻿namespace MiniCalculator
+﻿namespace LoanEligibilitySystem
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter first number: ");
-            double num1 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter age: ");
+            int age = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Enter second number: ");
-            double num2 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter monthly income: ");
+            double income = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Enter operator (+, -, *, /, %): ");
-            char op = Convert.ToChar(Console.ReadLine());
+            Console.Write("Do you have an existing loan? (yes/no): ");
+            string answer = Console.ReadLine();
 
-            switch (op)
+            bool hasLoan = answer == "yes";
+
+            if (age >= 21 && age <= 60 && income >= 400 && !hasLoan)
             {
-                case '+':
-                    Console.WriteLine("Result = " + (num1 + num2));
-                    break;
-
-                case '-':
-                    Console.WriteLine("Result = " + (num1 - num2));
-                    break;
-
-                case '*':
-                    Console.WriteLine("Result = " + (num1 * num2));
-                    break;
-
-                case '/':
-                    if (num2 != 0)
-                        Console.WriteLine("Result = " + (num1 / num2));
-                    else
-                        Console.WriteLine("Cannot divide by zero");
-                    break;
-
-                case '%':
-                    if (num2 != 0)
-                        Console.WriteLine("Result = " + (num1 % num2));
-                    else
-                        Console.WriteLine("Cannot divide by zero");
-                    break;
-
-                default:
-                    Console.WriteLine("Invalid operator");
-                    break;
+                Console.WriteLine("Eligible for loan");
+            }
+            else
+            {
+                if (age < 21 || age > 60)
+                    Console.WriteLine("Age out of range");
+                else if (income < 400)
+                    Console.WriteLine("Income too low");
+                else if (hasLoan)
+                    Console.WriteLine("Has an existing loan");
             }
         }
     }
