@@ -1,27 +1,29 @@
-﻿namespace MovieTicketPricing
+﻿namespace RestaurantBillwithMembershipDiscount
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter your age: ");
-            int age = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter total bill: ");
+            double bill = Convert.ToDouble(Console.ReadLine());
 
-            if (age <= 12)
+            Console.Write("Are you a member? (yes/no): ");
+            string answer = Console.ReadLine();
+
+            bool member = answer == "yes";
+
+            double discount = 0;
+
+            if (bill > 20 && member)
             {
-                Console.WriteLine("Category: Child");
-                Console.WriteLine("Price: 2.000 OMR");
+                discount = bill * 0.15;
             }
-            else if (age <= 59)
-            {
-                Console.WriteLine("Category: Adult");
-                Console.WriteLine("Price: 5.000 OMR");
-            }
-            else
-            {
-                Console.WriteLine("Category: Senior");
-                Console.WriteLine("Price: 3.000 OMR");
-            }
+
+            double finalBill = bill - discount;
+
+            Console.WriteLine("Original Bill: " + bill);
+            Console.WriteLine("Discount: " + discount);
+            Console.WriteLine("Final Bill: " + finalBill);
         }
     }
 }
