@@ -1,37 +1,48 @@
-﻿namespace FinderName
+﻿namespace MiniCalculator
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter day number (1-7): ");
-            int day = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter first number: ");
+            double num1 = Convert.ToDouble(Console.ReadLine());
 
-            switch (day)
+            Console.Write("Enter second number: ");
+            double num2 = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Enter operator (+, -, *, /, %): ");
+            char op = Convert.ToChar(Console.ReadLine());
+
+            switch (op)
             {
-                case 1:
-                    Console.WriteLine("Sunday");
+                case '+':
+                    Console.WriteLine("Result = " + (num1 + num2));
                     break;
-                case 2:
-                    Console.WriteLine("Monday");
+
+                case '-':
+                    Console.WriteLine("Result = " + (num1 - num2));
                     break;
-                case 3:
-                    Console.WriteLine("Tuesday");
+
+                case '*':
+                    Console.WriteLine("Result = " + (num1 * num2));
                     break;
-                case 4:
-                    Console.WriteLine("Wednesday");
+
+                case '/':
+                    if (num2 != 0)
+                        Console.WriteLine("Result = " + (num1 / num2));
+                    else
+                        Console.WriteLine("Cannot divide by zero");
                     break;
-                case 5:
-                    Console.WriteLine("Thursday");
+
+                case '%':
+                    if (num2 != 0)
+                        Console.WriteLine("Result = " + (num1 % num2));
+                    else
+                        Console.WriteLine("Cannot divide by zero");
                     break;
-                case 6:
-                    Console.WriteLine("Friday");
-                    break;
-                case 7:
-                    Console.WriteLine("Saturday");
-                    break;
+
                 default:
-                    Console.WriteLine("Invalid day number");
+                    Console.WriteLine("Invalid operator");
                     break;
             }
         }
