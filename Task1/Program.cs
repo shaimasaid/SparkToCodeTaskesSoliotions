@@ -1,27 +1,26 @@
-﻿namespace task6
+﻿namespace MovieTicketPricing
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter temperature in Celsius: ");
-            double celsius = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter your age: ");
+            int age = Convert.ToInt32(Console.ReadLine());
 
-            double fahrenheit = (celsius * 9 / 5) + 32;
-
-            Console.WriteLine("Fahrenheit = " + fahrenheit);
-
-            if (celsius < 10)
+            if (age <= 12)
             {
-                Console.WriteLine("Weather: Cold");
+                Console.WriteLine("Category: Child");
+                Console.WriteLine("Price: 2.000 OMR");
             }
-            else if (celsius <= 30)
+            else if (age <= 59)
             {
-                Console.WriteLine("Weather: Mild");
+                Console.WriteLine("Category: Adult");
+                Console.WriteLine("Price: 5.000 OMR");
             }
             else
             {
-                Console.WriteLine("Weather: Hot");
+                Console.WriteLine("Category: Senior");
+                Console.WriteLine("Price: 3.000 OMR");
             }
         }
     }
