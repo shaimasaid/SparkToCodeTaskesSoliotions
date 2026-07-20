@@ -1,37 +1,27 @@
-﻿namespace GradeLetterLookup
+﻿namespace task6
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter Grade (A/B/C/D/F): ");
-            char grade = Convert.ToChar(Console.ReadLine().ToUpper());
+            Console.Write("Enter temperature in Celsius: ");
+            double celsius = Convert.ToDouble(Console.ReadLine());
 
-            switch (grade)
+            double fahrenheit = (celsius * 9 / 5) + 32;
+
+            Console.WriteLine("Fahrenheit = " + fahrenheit);
+
+            if (celsius < 10)
             {
-                case 'A':
-                    Console.WriteLine("Excellent");
-                    break;
-
-                case 'B':
-                    Console.WriteLine("Very Good");
-                    break;
-
-                case 'C':
-                    Console.WriteLine("Good");
-                    break;
-
-                case 'D':
-                    Console.WriteLine("Pass");
-                    break;
-
-                case 'F':
-                    Console.WriteLine("Fail");
-                    break;
-
-                default:
-                    Console.WriteLine("Invalid grade");
-                    break;
+                Console.WriteLine("Weather: Cold");
+            }
+            else if (celsius <= 30)
+            {
+                Console.WriteLine("Weather: Mild");
+            }
+            else
+            {
+                Console.WriteLine("Weather: Hot");
             }
         }
     }
